@@ -1,3 +1,4 @@
+#[warn(non_snake_case)]
 fn main() {
     println!("Hello, world!");
 }
