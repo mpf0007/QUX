@@ -9,7 +9,7 @@
 ## Part 2: HTML
 - HTML has its own unique [parsing algorithm](https://html.spec.whatwg.org/multipage/syntax.html#parsing). Unlike parsers for most programming languages and file formats, the HTML parsing algorithm does not reject invalid input. Instead it includes specific error-handling instructions, so web browsers can agree on how to display every web page, even ones that don't conform to the syntax rules. Web browsers have to do this to be usable: Since non-conforming HTML has been supported since the early days of the web, it is now used in a huge portion of existing web pages.
 
-- My parser can handle simple pages like this:
+- Here’s an example of HTML source code:
 ``` html
 <html>
     <body>
@@ -25,4 +25,29 @@
     . Balanced tags: <p>...</p>
     . Attributes with quoted values: id="main"
     . Text nodes: <em>world</em>
+```
+## Part 3: CSS
+- introduces code for reading [Cascading Style Sheets (CSS)](https://www.w3.org/TR/CSS2/).
+
+- Here’s an example of CSS source code:
+``` css
+h1, h2, h3 { margin: auto; color: #cc0000; }
+div.note { margin-bottom: 20px; padding: 10px; }
+#answer { display: none; }
+
+```
+- All other CSS syntax is unsupported, including: 
+```
+    . @-rules
+    . comments
+    . any selectors/values/units not mentioned in code
+```
+
+- Parsing : 
+```
+CSS has a straightforward grammar, making it easier to parse correctly than its quirky cousin HTML. When a standards-compliant CSS parser encounters a parse error, it discards the unrecognized part of the stylesheet but still processes the remaining portions. This is useful because it allows stylesheets to include new syntax but still produce well-defined output in older browsers.
+```
+- Specificity : 
+```
+Specificity is one of the ways a rendering engine decides which style overrides the other in a conflict. If a stylesheet contains two rules that match an element, the rule with the matching selector of higher specificity can override values from the one with lower specificity.
 ```
