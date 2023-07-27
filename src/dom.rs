@@ -43,6 +43,9 @@ pub fn elem(name: String, attrs: AttrMap, children: Vec<Node>) -> Node {
     }
 }
 
+// To help, we’ll add some convenient ID and class accessors to our DOM element type.
+// The class attribute can contain multiple class names separated by spaces, which we return in a hash table.
+
 // Element methods
 impl ElementData {
     pub fn id(&self) -> Option<&String> {

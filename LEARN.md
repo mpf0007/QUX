@@ -51,3 +51,10 @@ CSS has a straightforward grammar, making it easier to parse correctly than its 
 ```
 Specificity is one of the ways a rendering engine decides which style overrides the other in a conflict. If a stylesheet contains two rules that match an element, the rule with the matching selector of higher specificity can override values from the one with lower specificity.
 ```
+## Part 4: Style
+- This module takes DOM nodes and CSS rules as input, and matches them up to determine the value of each CSS property for any given node.
+
+- The pipeline for our toy browser engine will look something like this, after we complete a few more stages :
+![pipe line for style module](./.statics/pipeline.svg)
+
+- In my implementation, each node in the DOM tree has exactly one node in the style tree. But in a more complicated pipeline stage, several input nodes could collapse into a single output node. Or an input node might expand into several output nodes, or be skipped completely. For example, the style tree could exclude elements whose display property is set to 'none'. (Instead I’ll remove these in the layout stage, because my code turned out a bit simpler that way.)
