@@ -10,7 +10,7 @@
 //! * Non-well-formed markup
 //! * Character entities
 
-use dom;
+use crate::dom;
 use std::collections::HashMap;
 
 /*

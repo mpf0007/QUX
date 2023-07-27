@@ -3,8 +3,8 @@
 //! This is not very interesting at the moment.  It will get much more
 //! complicated if I add support for compound selectors.
 
-use css::{Rule, Selector, SimpleSelector, Specificity, Stylesheet, Value};
-use dom::{ElementData, Node, NodeType};
+use crate::css::{Rule, Selector, SimpleSelector, Specificity, Stylesheet, Value};
+use crate::dom::{ElementData, Node, NodeType};
 use std::collections::HashMap;
 
 /*
@@ -19,7 +19,7 @@ type PropertyMap = HashMap<String, Value>;
 struct StyledNode<'a> {
     node: &'a Node, // pointer to a dom
     specified_values: PropertyMap,
-    children: Vec<StyleNode<'a>>,
+    children: Vec<StyledNode<'a>>,
     // What’s with all the 'a stuff? Those are lifetimes, part of how Rust guarantees that pointers are memory-safe without requiring garbage collection.
     //  If you’re not working in Rust you can ignore them; they aren’t critical to the code’s meaning.
 }
