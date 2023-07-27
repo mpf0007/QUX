@@ -16,7 +16,7 @@ Each node in this tree includes a pointer to a DOM node, plus its CSS property v
 type PropertyMap = HashMap<String, Value>;
 
 // a node with associated style data.
-struct StyledNode<'a> {
+pub struct StyledNode<'a> {
     node: &'a Node, // pointer to a dom
     specified_values: PropertyMap,
     children: Vec<StyledNode<'a>>,

@@ -37,8 +37,8 @@ pub struct SimpleSelector {
 // For example, "margin: auto;" is a declaration.
 #[derive(Debug)]
 pub struct Declaration {
-    name: String,
-    value: Value,
+    pub name: String,
+    pub value: Value,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -112,7 +112,7 @@ pub fn parse(source: String) -> Stylesheet {
 
 struct Parser {
     pos: usize,
-    input: Stringm,
+    input: String,
 }
 
 impl Parser {
