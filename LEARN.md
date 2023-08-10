@@ -58,3 +58,10 @@ Specificity is one of the ways a rendering engine decides which style overrides 
 ![pipe line for style module](./.statics/pipeline.svg)
 
 - In my implementation, each node in the DOM tree has exactly one node in the style tree. But in a more complicated pipeline stage, several input nodes could collapse into a single output node. Or an input node might expand into several output nodes, or be skipped completely. For example, the style tree could exclude elements whose display property is set to 'none'. (Instead I’ll remove these in the layout stage, because my code turned out a bit simpler that way.)
+## Part 5: Boxes
+- Layout is all about boxes. A box is a rectangular section of a web page. It has a width, a height, and a position on the page. This rectangle is called the content area because it’s where the box’s content is drawn. The content may be text, image, video, or other boxes.
+
+
+- A box may also have padding, borders, and margins surrounding its content area. The CSS spec has a [diagram](https://www.w3.org/TR/CSS2/box.html#box-dimensions) showing how all these layers fit together.
+
+- The CSS [display](https://developer.mozilla.org/en-US/docs/Web/CSS/display) property determines which type of box an element generates. CSS defines several box types, each with its own layout rules. I’m only going to talk about two of them: block and inline.

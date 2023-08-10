@@ -17,9 +17,9 @@ type PropertyMap = HashMap<String, Value>;
 
 // a node with associated style data.
 pub struct StyledNode<'a> {
-    node: &'a Node, // pointer to a dom
-    specified_values: PropertyMap,
-    children: Vec<StyledNode<'a>>,
+    pub node: &'a Node, // pointer to a dom
+    pub specified_values: PropertyMap,
+    pub children: Vec<StyledNode<'a>>,
     // What’s with all the 'a stuff? Those are lifetimes, part of how Rust guarantees that pointers are memory-safe without requiring garbage collection.
     //  If you’re not working in Rust you can ignore them; they aren’t critical to the code’s meaning.
 }
