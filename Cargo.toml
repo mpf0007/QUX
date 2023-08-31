@@ -8,3 +8,4 @@ authors = ["Pouya <m.p.farahany@gmail.com>"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+getopts = "0.2.21"
