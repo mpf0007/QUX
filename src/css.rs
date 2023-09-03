@@ -10,7 +10,6 @@
 pub struct Stylesheet {
     pub rules: Vec<Rule>,
 }
-
 // A rule includes one or more selectors separated by commas, followed by a series of declarations enclosed in braces.
 #[derive(Debug)]
 pub struct Rule {
@@ -44,7 +43,6 @@ pub struct Declaration {
 #[derive(Debug, Clone, PartialEq)]
 pub enum Value {
     Keyword(String),
-    // f32 is a 32-bit float.
     Length(f32, Unit),
     ColorValue(Color),
 }
@@ -52,12 +50,10 @@ pub enum Value {
 #[derive(Debug, Clone, PartialEq)]
 pub enum Unit {
     Px,
-    // insert more units here
 }
 
 #[derive(Debug, Clone, PartialEq, Default)]
 pub struct Color {
-    // u8 is an 8-bit unsigned integer.
     pub r: u8,
     pub g: u8,
     pub b: u8,
@@ -104,7 +100,6 @@ pub fn parse(source: String) -> Stylesheet {
         pos: 0,
         input: source,
     };
-
     Stylesheet {
         rules: parser.parse_rules(),
     }
@@ -126,7 +121,7 @@ impl Parser {
             }
             rules.push(self.parse_rule());
         }
-        return rules;
+        rules
     }
 
     /// Parse a rule set: `<selectors> { <declarations> }`.

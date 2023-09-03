@@ -13,7 +13,7 @@ Each node in this tree includes a pointer to a DOM node, plus its CSS property v
 */
 
 // Map from CSS property names to values.
-type PropertyMap = HashMap<String, Value>;
+pub type PropertyMap = HashMap<String, Value>;
 
 // a node with associated style data.
 pub struct StyledNode<'a> {
